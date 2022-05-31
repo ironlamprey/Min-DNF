@@ -11,108 +11,132 @@ import matplotlib as mpl
 #Uncomment to generate TikZ code
 #mpl.use("pgf")
 
-OR = [0, 1, 1, 1]
-print(toString(GreedyMinDNF(OR), 2))
-print(toString(PrimeImplicants(OR), 2))
-print(QMtoString(Quine_McCluskey(OR),2))
-print(toString(RandomizedMinDNF(OR), 2))
-print()
+def test1(verbose=False):
+    OR = [0, 1, 1, 1]
+    print(toString(GreedyMinDNF(OR, verbose), 2))
+    print(toString(PrimeImplicants(OR), 2))
+    print(QMtoString(Quine_McCluskey(OR),2))
+    print(toString(RandomizedMinDNF(OR), 2))
+    print()
 
-XOR = [0, 1, 1, 0]
-print(toString(GreedyMinDNF(XOR), 2))
-print(toString(PrimeImplicants(XOR), 2))
-print(QMtoString(Quine_McCluskey(XOR),2))
-print(toString(RandomizedMinDNF(XOR), 2))
-print()
+def test2(verbose=False):
+    XOR = [0, 1, 1, 0]
+    print(toString(GreedyMinDNF(XOR, verbose), 2))
+    print(toString(PrimeImplicants(XOR), 2))
+    print(QMtoString(Quine_McCluskey(XOR),2))
+    print(toString(RandomizedMinDNF(XOR), 2))
+    print()
 
-f = [1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0, 1, 0, 1]
-print(toString(GreedyMinDNF(f), 4))
-print(toString(PrimeImplicants(f), 4))
-print(QMtoString(Quine_McCluskey(f),4))
-print(toString(RandomizedMinDNF(f), 4))
-print()
+def test3(verbose=False):
+    f = [1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0, 1, 0, 1]
+    print(toString(GreedyMinDNF(f, verbose), 4))
+    print(toString(PrimeImplicants(f), 4))
+    print(QMtoString(Quine_McCluskey(f),4))
+    print(toString(RandomizedMinDNF(f), 4))
+    print()
 
-AND = [0, 0, 0, 0, 0, 0, 0, 1]
-print(toString(GreedyMinDNF(AND), 3))
-print(toString(PrimeImplicants(AND), 3))
-print(QMtoString(Quine_McCluskey(AND),3))
-print(toString(RandomizedMinDNF(AND), 3))
-print()
+def test4(verbose=False):
+    AND = [0, 0, 0, 0, 0, 0, 0, 1]
+    print(toString(GreedyMinDNF(AND, verbose), 3))
+    print(toString(PrimeImplicants(AND), 3))
+    print(QMtoString(Quine_McCluskey(AND),3))
+    print(toString(RandomizedMinDNF(AND), 3))
+    print()
 
-x1 = [0, 0, 1, 1, 0, 0, 1, 1]
-print(toString(GreedyMinDNF(x1), 3))
-print(toString(PrimeImplicants(x1), 3))
-print(QMtoString(Quine_McCluskey(x1),3))
-print(toString(RandomizedMinDNF(x1), 3))
-print()
+def test5(verbose=False):
+    x1 = [0, 0, 1, 1, 0, 0, 1, 1]
+    print(toString(GreedyMinDNF(x1, verbose), 3))
+    print(toString(PrimeImplicants(x1), 3))
+    print(QMtoString(Quine_McCluskey(x1),3))
+    print(toString(RandomizedMinDNF(x1), 3))
+    print()
 
-MAJ = [0, 0, 0, 1, 0, 1, 1, 1]
-print(toString(GreedyMinDNF(MAJ), 3))
-print(toString(PrimeImplicants(MAJ), 3))
-print(QMtoString(Quine_McCluskey(MAJ),3))
-print(toString(RandomizedMinDNF(MAJ), 3))
-print()
+def test6(verbose=False):
+    MAJ = [0, 0, 0, 1, 0, 1, 1, 1]
+    print(toString(GreedyMinDNF(MAJ, verbose), 3))
+    print(toString(PrimeImplicants(MAJ), 3))
+    print(QMtoString(Quine_McCluskey(MAJ),3))
+    print(toString(RandomizedMinDNF(MAJ), 3))
+    print()
 
 #The truth table from Wikipedias article on Quine-McCluskey
-f = [0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1]
-print(toString(GreedyMinDNF(f), 4))
-print(toString(PrimeImplicants(f), 4))
-print(QMtoString(Quine_McCluskey(f),4))
-print(toString(RandomizedMinDNF(f), 4))
-print()
+def test7(verbose=False):
+    f = [0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1]
+    print(toString(GreedyMinDNF(f, verbose), 4))
+    print(toString(PrimeImplicants(f), 4))
+    print(QMtoString(Quine_McCluskey(f),4))
+    print(toString(RandomizedMinDNF(f), 4))
+    print()
 
+def test8(verbose=False):
+    f = [1, 1, 1 ,1, 0, 1, 1, 1]
+    print(toString(GreedyMinDNF(f, verbose), 3))
+    print(toString(PrimeImplicants(f), 3))
+    print(QMtoString(Quine_McCluskey(f),3))
+    print(toString(RandomizedMinDNF(f), 3))
+    print()
 
-f = [1, 1, 1 ,1, 0, 1, 1, 1]
-print(toString(GreedyMinDNF(f), 3))
-print(toString(PrimeImplicants(f), 3))
-print(QMtoString(Quine_McCluskey(f),3))
-print(toString(RandomizedMinDNF(f), 3))
-print()
+def test9(verbose=False):
+    f = [1, 1, 1, 0, 0, 1, 1, 1]
+    print(toString(GreedyMinDNF(f, verbose), 3))
+    print(toString(PrimeImplicants(f), 3))
+    print(QMtoString(Quine_McCluskey(f),3))
+    print(toString(RandomizedMinDNF(f), 3))
+    print()
 
-print("here")
-f = [1, 1, 1, 0, 0, 1, 1, 1]
-print(toString(GreedyMinDNF(f), 3))
-print(toString(PrimeImplicants(f), 3))
-print(QMtoString(Quine_McCluskey(f),3))
-print(toString(RandomizedMinDNF(f), 3))
-print()
+def test10(verbose=False):
+    NAND = [1, 1, 1, 1, 1, 1, 1, 0]
+    print(toString(GreedyMinDNF(NAND, verbose), 3))
+    print(toString(PrimeImplicants(NAND), 3))
+    print(QMtoString(Quine_McCluskey(NAND),3))
+    print(toString(RandomizedMinDNF(NAND), 3))
+    print()
 
+def test11(verbose=False):
+    allTerms = [1, 1, 1, 1, 1, 1, 1, 1]
+    print(toString(GreedyMinDNF(allTerms, verbose), 3))
+    print(toString(PrimeImplicants(allTerms), 3))
+    print(QMtoString(Quine_McCluskey(allTerms),3))
+    print(toString(RandomizedMinDNF(allTerms), 3))
+    print()
 
-NAND = [1, 1, 1, 1, 1, 1, 1, 0]
-print(toString(GreedyMinDNF(NAND), 3))
-print(toString(PrimeImplicants(NAND), 3))
-print(QMtoString(Quine_McCluskey(NAND),3))
-print(toString(RandomizedMinDNF(NAND), 3))
-print()
+def test12(verbose=False):
+    DParity5 = [0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0]
+    print(toString(GreedyMinDNF(DParity5, verbose), 5))
+    print(toString(PrimeImplicants(DParity5), 5))
+    print(QMtoString(Quine_McCluskey(DParity5),5))
+    print(toString(RandomizedMinDNF(DParity5), 5))
+    print()
 
-allTerms = [1, 1, 1, 1, 1, 1, 1, 1]
-print(toString(GreedyMinDNF(allTerms), 3))
-print(toString(PrimeImplicants(allTerms), 3))
-print(QMtoString(Quine_McCluskey(allTerms),3))
-print(toString(RandomizedMinDNF(allTerms), 3))
-print()
+def test13(verbose=False):
+    nDParity = DoubleParity(11)
+    print(len(GreedyMinDNF(nDParity, verbose)))
+    print(len(PrimeImplicants(nDParity)))
+    print()
 
-DParity5 = [0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0]
-print(toString(GreedyMinDNF(DParity5), 5))
-print(toString(PrimeImplicants(DParity5), 5))
-print(QMtoString(Quine_McCluskey(DParity5),5))
-print(toString(RandomizedMinDNF(DParity5), 5))
-print()
+def test14(verbose=False):
+    Savicky = [0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1]
+    print(toString(GreedyMinDNF(Savicky, verbose), 4))
+    print(toString(PrimeImplicants(Savicky), 4))
+    print(QMtoString(Quine_McCluskey(Savicky),4))
+    print(toString(RandomizedMinDNF(Savicky), 4))
+    print()
 
-nDParity = DoubleParity(11)
-print(len(GreedyMinDNF(nDParity)))
-print(len(PrimeImplicants(nDParity)))
-print()
-
-Savicky = [0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1]
-print(toString(GreedyMinDNF(Savicky), 4))
-print(toString(PrimeImplicants(Savicky), 4))
-print(QMtoString(Quine_McCluskey(Savicky),4))
-print(toString(RandomizedMinDNF(Savicky), 4))
-print()
-
-
-
+def testAll():
+    test1()
+    test2()
+    test3()
+    test4()
+    test5()
+    test6()
+    test7()
+    test8()
+    test9()
+    test10()
+    test11()
+    test12()
+    test13()
+    test14()
 
 #Let's make a plot!
 def benchmark(n, filename, title, qm=False, randomized=True, function=lambda x: x, log=False):
@@ -159,4 +183,6 @@ def benchmark(n, filename, title, qm=False, randomized=True, function=lambda x: 
     #plt.close()
     #plt.show()
 
-benchmark(6, "", "")
+#benchmark(6, "", "")
+
+test9(verbose=True)
