@@ -8,7 +8,7 @@ def argmax(X, key=None):
     return [i for i in range(len(X)) if X[i] == m][-1]
 
 
-def FindTerms(f):
+def FindTerms(f, verbose=False):
     N = len(f)
     Nlog3 = int(N**np.log2(3))+1
     V = []
@@ -44,8 +44,10 @@ def FindTerms(f):
     return V
 
 
-def PrimeImplicants(f):
+def PrimeImplicants(f, verbose=False):
     V = FindTerms(f)
+    if verbose:
+        print("All terms:", V)
     N = len(f)
     Nlog3 = int(N**np.log2(3))+1
     PI = [0 for _ in range(Nlog3)]
@@ -70,15 +72,14 @@ def PrimeImplicants(f):
 
 
 
-def GreedyMinDNF(f):
+def GreedyMinDNF(f, verbose=False):
     N = len(f)
     f_domain = sum(f)
 
     #Find Prime implicants:
-    V = PrimeImplicants(f)
+    V = PrimeImplicants(f, verbose)
     C = findOnes(V, f)
     m = len(max(C, key=lambda x: len(x)))
-
     #Map ones of f to terms covering them
     index_covering_ones = [[] for _ in range(N)]
     for i in V:
@@ -89,6 +90,16 @@ def GreedyMinDNF(f):
     for j in V:
         A[sizes[j]].add(j)
     m = len(A)-1
+    
+    if verbose:
+        print("N =", N)
+        print("N^log3 =", int(N**np.log2(3))+1)
+        print("Prime Implicants:", V)
+        print("Ones of f:", C)
+        print("index_covering_ones:", index_covering_ones)
+        print("sizes:", sizes)
+        print("A:", A)
+        print()
     #For each size, find which idx has this size
     TermsCovered = set()
     phi = []
@@ -108,6 +119,14 @@ def GreedyMinDNF(f):
         #Make sure we do not pop from an empty set
         while not A[m] and m > 0:
             m -= 1
+        if verbose:
+            print("Term picked:", T)
+            print("phi:", phi)
+            print("Terms covered:", TermsCovered)
+            print("sizes:", sizes)
+            print("A:", A)
+            print("m:", m)
+            print()
     return phi
 
 def findOnes(V, f):
