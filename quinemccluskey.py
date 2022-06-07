@@ -4,7 +4,7 @@ from itertools import chain, combinations
 def powerset(X):
     return set(chain.from_iterable(combinations(X, r) for r in range(len(X)+1)))
 
-def Quine_McCluskey(f, petrick=False, only_generate_prime_implicants=False):
+def Quine_McCluskey(f, only_generate_prime_implicants=False):
     #inspired by https://github.com/int-main/Quine-McCluskey/blob/master/Quine%20McCluskey.py
     f_domain = [i for i, e in enumerate(f) if e]
     C = {}

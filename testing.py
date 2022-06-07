@@ -185,4 +185,4 @@ def benchmark(n, filename, title, qm=False, randomized=True, function=lambda x: 
 
 #benchmark(6, "", "")
 
-test9(verbose=True)
+test1(verbose=True)
