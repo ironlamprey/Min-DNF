@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from mindnf import GreedyMinDNF, PrimeImplicants, RandomizedMinDNF, findOnes, toString, Phi
 from quinemccluskey import QMtoString, Quine_McCluskey
-from generatetruthtables import DoubleParity, Or, ThreePhase, Threshhold, Maj, Sym, Ones, And, XORAdrr
+from generatetruthtables import DoubleParity, Or, f_a_b, Threshhold, Maj, Sym, Ones, And, XORAdrr
 import time
 import matplotlib as mpl
 
@@ -182,6 +182,6 @@ def benchmark(n, filename, title, qm=False, randomized=True, function=lambda x: 
     #plt.savefig(filename+".pgf")
     plt.show()
 
-benchmark(3, "XORAddr", "XORAddr", qm=True, randomized=False, function=XORAdrr, log=True)
+benchmark(8, "f_a_b", "f_a_b", randomized=False, function=f_a_b, log=True)
 
 #testAll()

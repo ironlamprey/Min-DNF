@@ -28,13 +28,6 @@ def Sym(n):
 def Ones(n):
     return [1 for i in range(2**n)]
 
-def ThreePhase(n, a, b):
-    f = [0 for i in range(2**n)]
-    for i in range(2**n):
-        d = bin(i)[2:].zfill(n)
-        if d.count("1") >= a and d.count("0") >= b:
-            f[i] = 1
-    return f
 
 def And(n):
     return [0 for i in range(2**n - 1)] + [1]
@@ -44,7 +37,7 @@ def Or(n):
 
 def XORAdrr(k):
     n = k+2**k
-    N = 2**n 
+    N = 2**n
     f = [0 for _ in range(N)]
     for i in range(2**k):
         f[2**i] = 0
@@ -53,6 +46,18 @@ def XORAdrr(k):
         f[2**k + 2**i + 1] = 0
     return f
 
+def f_a_b(n, a=None, b=None):
+    if a is None and b is None:
+        a = n//4
+        b = n//4
+    f = [0 for _ in range(2**n)]
+    for i in range(2**n):
+        d = bin(i)[2:].zfill(n)
+        if d.count("1") >= a and d.count("0") >= b:
+            f[i] = 1
+    return f
+    
+        
 
 DParity = [0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0]
 #print(DParity)
