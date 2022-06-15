@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from mindnf import GreedyMinDNF, PrimeImplicants, RandomizedMinDNF, findOnes, toString, Phi
 from quinemccluskey import QMtoString, Quine_McCluskey
-from generatetruthtables import DoubleParity, Or, ThreePhase, Threshhold, Maj, Sym, Ones, And
+from generatetruthtables import DoubleParity, Or, ThreePhase, Threshhold, Maj, Sym, Ones, And, XORAdrr
 import time
 import matplotlib as mpl
 
@@ -176,13 +176,12 @@ def benchmark(n, filename, title, qm=False, randomized=True, function=lambda x: 
     plt.xlabel("Number of variables")
     plt.ylabel("Time in seconds")
     plt.title(title)
-    #plt.savefig(filename+".png")
+    plt.savefig("plots/" +filename+".png")
 
     #Uncomment to generate TikZ code
     #plt.savefig(filename+".pgf")
-    #plt.close()
-    #plt.show()
+    plt.show()
 
-#benchmark(6, "", "")
+benchmark(3, "XORAddr", "XORAddr", qm=True, randomized=False, function=XORAdrr, log=True)
 
-test1(verbose=True)
+#testAll()

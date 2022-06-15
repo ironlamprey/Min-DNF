@@ -42,6 +42,18 @@ def And(n):
 def Or(n):
     return [0] +  [1 for i in range(2**n - 1)]
 
+def XORAdrr(k):
+    n = k+2**k
+    N = 2**n 
+    f = [0 for _ in range(N)]
+    for i in range(2**k):
+        f[2**i] = 0
+        f[2**i + 1] = 1
+        f[2**k + 2**i] = 1
+        f[2**k + 2**i + 1] = 0
+    return f
+
+
 DParity = [0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0]
 #print(DParity)
 #print(DoubleParity(5))
